@@ -159,37 +159,6 @@ const About = () => {
                     }}
                   />
                 </div>
-                
-                {/* Resume Download Button */}
-                <motion.div 
-                  className="mt-6 flex flex-col sm:flex-row gap-3 justify-center"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                >
-                  <motion.a
-                    href="/Luigi Amarillo - Resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 group"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <EyeIcon className="h-5 w-5 mr-2" />
-                    View Resume
-                  </motion.a>
-                  <motion.a
-                    href="/Luigi Amarillo - Resume.pdf"
-                    download="Luigi Amarillo - Resume.pdf"
-                    className="inline-flex items-center justify-center px-6 py-3 border border-primary/30 text-primary rounded-lg font-medium hover:bg-primary/10 transition-all duration-300 group"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <DocumentArrowDownIcon className="h-5 w-5 mr-2" />
-                    Download Resume
-                  </motion.a>
-                </motion.div>
               </div>
             </motion.div>
 
@@ -229,6 +198,40 @@ const About = () => {
               >
                 Beyond coding, I have a deep passion for art, design, and gaming, which fuels my creativity in digital development. I enjoy experimenting with new recipes in the kitchen, finding that the same creativity and problem-solving skills apply to both cooking and development. I'm always eager to learn and grow, whether through hands-on projects, exploring new technologies, or drawing inspiration from various art forms and design trends. My goal is to create digital experiences that are not just functional but also visually stunning and enjoyable to use.
               </motion.p>
+              
+              {/* Resume Buttons */}
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <motion.a
+                  href="/Luigi Amarillo - Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 overflow-hidden"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <EyeIcon className="h-5 w-5 mr-2 relative z-10" />
+                  <span className="relative z-10">View Resume</span>
+                </motion.a>
+                
+                <motion.a
+                  href="/Luigi Amarillo - Resume.pdf"
+                  download="Luigi Amarillo - Resume.pdf"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 border-2 border-primary/40 text-primary rounded-xl font-semibold hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 backdrop-blur-sm"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <DocumentArrowDownIcon className="h-5 w-5 mr-2 group-hover:animate-bounce" />
+                  <span>Download Resume</span>
+                </motion.a>
+              </motion.div>
             </motion.div>
           </div>
         </div>
