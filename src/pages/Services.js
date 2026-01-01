@@ -9,7 +9,8 @@ import {
   MagnifyingGlassIcon,
   CheckCircleIcon,
   ArrowRightIcon,
-  ArrowTopRightOnSquareIcon
+  ArrowTopRightOnSquareIcon,
+  WrenchScrewdriverIcon
 } from '@heroicons/react/24/outline';
 import eumatterImage from '../assets/eumatterPage.png';
 import n2RevConImage from '../assets/n2RevConPage.png';
@@ -52,7 +53,8 @@ const services = [
       'Interaction Design',
       'Information Architecture',
       'Design Systems'
-    ]
+    ],
+    underMaintenance: true
   },
   {
     title: 'Graphic Design',
@@ -71,7 +73,8 @@ const services = [
       'Social Media Graphics',
       'Marketing Materials',
       'Illustrations & Icons'
-    ]
+    ],
+    underMaintenance: true
   }
 ];
 
@@ -194,6 +197,52 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="group relative bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-gray-800 hover:border-primary/40 transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/5 overflow-hidden"
               >
+                {/* Maintenance Overlay */}
+                {service.underMaintenance && (
+                  <div className="absolute inset-0 bg-gray-950/95 backdrop-blur-md z-50 flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-yellow-500/30">
+                    <motion.div
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-center"
+                    >
+                      <motion.div
+                        animate={{ rotate: [0, 10, -10, 10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                        className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-yellow-500/20 border-2 border-yellow-500/40 mb-6"
+                      >
+                        <WrenchScrewdriverIcon className="h-10 w-10 text-yellow-400" />
+                      </motion.div>
+                      <h3 className="text-2xl font-bold text-white mb-3 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
+                        Under Maintenance
+                      </h3>
+                      <p className="text-gray-300 mb-2 max-w-md">
+                        This section is currently being updated with new content and improvements.
+                      </p>
+                      <p className="text-sm text-gray-400">
+                        Please check back soon!
+                      </p>
+                      <div className="mt-6 flex items-center justify-center space-x-2">
+                        {[0, 1, 2].map((i) => (
+                          <motion.div
+                            key={i}
+                            className="w-2 h-2 bg-yellow-400 rounded-full"
+                            animate={{
+                              scale: [1, 1.5, 1],
+                              opacity: [0.5, 1, 0.5],
+                            }}
+                            transition={{
+                              duration: 1.5,
+                              repeat: Infinity,
+                              delay: i * 0.2,
+                              ease: "easeInOut"
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+                )}
                 {/* Animated gradient background on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out -z-10"></div>
                 
