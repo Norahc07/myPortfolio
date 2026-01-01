@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { UserCircleIcon, AcademicCapIcon, BriefcaseIcon, CodeBracketIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { UserCircleIcon, AcademicCapIcon, BriefcaseIcon, CodeBracketIcon, ArrowTopRightOnSquareIcon, DocumentArrowDownIcon, EyeIcon } from '@heroicons/react/24/outline';
 import SkillsChart from '../components/SkillsChart';
+import profileImage from '../assets/1x1 (1).png';
 
 // Grid background component
 const GridBackground = () => (
@@ -133,7 +134,11 @@ const About = () => {
                   <div className="absolute inset-0.5 rounded-full bg-gradient-to-br from-gray-900 to-gray-800 p-1">
                     <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-900 to-gray-800 p-1">
                       <div className="w-full h-full rounded-full overflow-hidden">
-                        <UserCircleIcon className="h-full w-full text-primary/30 group-hover:text-primary/40 transition-colors duration-500" />
+                        <img 
+                          src={profileImage} 
+                          alt="Luigi Amarillo" 
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
                   </div>
@@ -154,6 +159,37 @@ const About = () => {
                     }}
                   />
                 </div>
+                
+                {/* Resume Download Button */}
+                <motion.div 
+                  className="mt-6 flex flex-col sm:flex-row gap-3 justify-center"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
+                  <motion.a
+                    href="/Luigi Amarillo - Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 group"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <EyeIcon className="h-5 w-5 mr-2" />
+                    View Resume
+                  </motion.a>
+                  <motion.a
+                    href="/Luigi Amarillo - Resume.pdf"
+                    download="Luigi Amarillo - Resume.pdf"
+                    className="inline-flex items-center justify-center px-6 py-3 border border-primary/30 text-primary rounded-lg font-medium hover:bg-primary/10 transition-all duration-300 group"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <DocumentArrowDownIcon className="h-5 w-5 mr-2" />
+                    Download Resume
+                  </motion.a>
+                </motion.div>
               </div>
             </motion.div>
 
