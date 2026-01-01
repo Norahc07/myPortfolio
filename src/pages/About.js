@@ -229,33 +229,6 @@ const About = () => {
               >
                 Beyond coding, I have a deep passion for art, design, and gaming, which fuels my creativity in digital development. I enjoy experimenting with new recipes in the kitchen, finding that the same creativity and problem-solving skills apply to both cooking and development. I'm always eager to learn and grow, whether through hands-on projects, exploring new technologies, or drawing inspiration from various art forms and design trends. My goal is to create digital experiences that are not just functional but also visually stunning and enjoyable to use.
               </motion.p>
-              
-              <motion.div 
-                className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                {[
-                  { value: '50+', label: 'Projects' },
-                  { value: '40+', label: 'Clients' },
-                  { value: '30+', label: 'Websites' },
-                  { value: '20+', label: 'Apps' }
-                ].map((item, i) => (
-                  <motion.div 
-                    key={i}
-                    className="bg-gray-900/50 backdrop-blur-sm p-4 rounded-xl border border-gray-800 hover:border-primary/30 transition-colors group"
-                    whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(99, 102, 241, 0.1)' }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
-                  >
-                    <div className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-400 group-hover:from-primary-300 group-hover:to-primary-500 transition-colors">
-                      {item.value}
-                    </div>
-                    <div className="text-sm text-gray-400 mt-1">{item.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
             </motion.div>
           </div>
         </div>
