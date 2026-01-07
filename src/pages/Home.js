@@ -408,7 +408,7 @@ const Home = () => {
 
               {/* Right Column: Hero Image */}
               <motion.div 
-                className="flex-1 w-full"
+                className="hidden md:block flex-1 w-full"
                 variants={itemVariants}
               >
                 <div className="relative max-w-[520px] mx-auto w-full lg:ml-auto lg:-mt-8">
