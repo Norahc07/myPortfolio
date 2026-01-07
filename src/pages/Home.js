@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import TechStackCarousel from '../components/TechStackCarousel';
+import heroImage from '../assets/hero-imageko.png';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { 
   ArrowRightIcon, 
@@ -338,76 +339,99 @@ const Home = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div 
-            className="max-w-6xl mx-auto"
+            className="max-w-7xl mx-auto"
             ref={ref}
             initial="hidden"
             animate={controls}
             variants={containerVariants}
           >
-            <motion.div variants={itemVariants} className="mb-6">
-              <span className="inline-block px-3 py-1 text-sm font-mono bg-primary/10 text-primary rounded-full mt-20 mb-2">
-                Hello, I'm
-              </span>
-            </motion.div>
-            
-            <motion.h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
-              variants={itemVariants}
-            >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-                Luigi Amarillo
-              </span>
-            </motion.h1>
-            
-            <motion.h2 
-              className="text-2xl md:text-4xl font-semibold mb-8 text-gray-300"
-              variants={itemVariants}
-            >
-              <Typewriter 
-                words={['UX/UI Designer', 'Front-end Developer', 'Creative Designer']}
-                className="text-primary"
-              />
-            </motion.h2>
-            
-            <motion.p 
-              className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl"
-              variants={itemVariants}
-            >
-              I build intuitive applications with pixel-perfect precision, where clean design meets robust functionality.
-            </motion.p>
-            
-            <motion.div 
-              className="flex flex-wrap gap-6 items-center mb-16"
-              variants={itemVariants}
-            >
-              <Link
-                to="/projects"
-                className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-dark bg-gradient-to-r from-primary-400 to-primary-600 rounded-lg group hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-12 lg:gap-12">
+              {/* Left Column: Intro Text */}
+              <div className="flex-1 w-full">
+                <motion.div variants={itemVariants} className="mb-6">
+                  <span className="inline-block px-3 py-1 text-sm font-mono bg-primary/10 text-primary rounded-full mt-20 mb-2">
+                    Hello, I'm
+                  </span>
+                </motion.div>
+                
+                <motion.h1 
+                  className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+                  variants={itemVariants}
+                >
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
+                    Luigi Amarillo
+                  </span>
+                </motion.h1>
+                
+                <motion.h2 
+                  className="text-2xl md:text-4xl font-semibold mb-8 text-gray-300"
+                  variants={itemVariants}
+                >
+                  <Typewriter 
+                    words={['UX/UI Designer', 'Front-end Developer', 'Creative Designer']}
+                    className="text-primary"
+                  />
+                </motion.h2>
+                
+                <motion.p 
+                  className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl"
+                  variants={itemVariants}
+                >
+                  I build intuitive applications with pixel-perfect precision, where clean design meets robust functionality.
+                </motion.p>
+                
+                <motion.div 
+                  className="flex flex-wrap gap-6 items-center mb-16"
+                  variants={itemVariants}
+                >
+                  <Link
+                    to="/projects"
+                    className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-dark bg-gradient-to-r from-primary-400 to-primary-600 rounded-lg group hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-105"
+                  >
+                    <span className="relative z-10 flex items-center">
+                      View Featured Projects
+                      <ArrowRightIcon className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                  
+                  <Link
+                    to="/about"
+                    className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium border border-primary/30 text-primary rounded-lg group hover:bg-primary/5 transition-all duration-300 hover:border-primary/50"
+                  >
+                    <span className="relative z-10">
+                      About Me / Skills
+                    </span>
+                  </Link>
+                </motion.div>
+                
+              </div>
+
+              {/* Right Column: Hero Image */}
+              <motion.div 
+                className="flex-1 w-full"
+                variants={itemVariants}
               >
-                <span className="relative z-10 flex items-center">
-                  View Featured Projects
-                  <ArrowRightIcon className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
-              
-              <Link
-                to="/about"
-                className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium border border-primary/30 text-primary rounded-lg group hover:bg-primary/5 transition-all duration-300 hover:border-primary/50"
+                <div className="relative max-w-[520px] mx-auto w-full lg:ml-auto lg:-mt-8">
+                  <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+                    <img 
+                      src={heroImage} 
+                      alt="Luigi Amarillo hero" 
+                      className="w-full h-full object-cover"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Full-width Tech Stack */}
+              <motion.div 
+                className="lg:col-span-2 w-full pt-10 border-t border-gray-800 overflow-hidden"
+                variants={itemVariants}
               >
-                <span className="relative z-10">
-                  About Me / Skills
-                </span>
-              </Link>
-            </motion.div>
-            
-            {/* Tech Stack Carousel */}
-            <motion.div 
-              className="pt-8 border-t border-gray-800 overflow-hidden"
-              variants={itemVariants}
-            >
-              <p className="text-sm text-gray-500 mb-6 font-mono">TECH STACK</p>
-              <TechStackCarousel />
-            </motion.div>
+                <p className="text-sm text-gray-500 mb-6 font-mono">TECH STACK</p>
+                <TechStackCarousel />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
